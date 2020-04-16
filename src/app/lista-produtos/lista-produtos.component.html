@@ -1,0 +1,36 @@
+<div class="flex fill column lista-produtos">
+  
+
+  <div class="flex row produto" *ngFor="let produto of appService.dados; let id = index">
+
+    <img [src]="produto.urlImagem">
+
+    <div class="grow flex column descricao-produto">
+
+      <div>
+        
+        <h2>
+          {{ produto.titulo }}
+        </h2>
+        <p>
+          {{ produto.descricaoCurta }}
+        </p>
+      </div>
+
+      <div class="grow"></div>
+
+      <div class="flex row">
+        <h3>
+          R$ {{ produto.valor }}
+        </h3>
+        <div class="grow"></div>
+
+        <button mat-raised-button color="primary" routerLink="/detalhes/{{id}}">  Detalhes </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+

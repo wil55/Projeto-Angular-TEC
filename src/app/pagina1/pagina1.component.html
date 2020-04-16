@@ -1,0 +1,80 @@
+<form [formGroup]="formulario" (ngSubmit)="enviar()">
+
+  <mat-card class="formulario">
+      <mat-card-title class="titulo">
+          Cadastro Carros
+      </mat-card-title>
+      <br>
+
+     
+      <mat-form-field appearance="fill">
+
+        <mat-label>Veiculo</mat-label>
+        <input matInput formControlName="titulo" name="Titulo">
+        <mat-error *ngIf="formulario.controls['descricaoCurta'].hasError('required')">Campo em Branco!</mat-error>
+        <mat-error *ngIf="formulario.controls['descricaoCurta'].hasError('maxlength')">O campo deve ter no máximo 30 caracteres!</mat-error>
+        <mat-error *ngIf="formulario.controls['descricaoCurta'].hasError('minlength')">O campo deve ter no minimo 10 caracteres!</mat-error>
+
+    </mat-form-field>
+  
+      <br><br>
+
+      <mat-form-field appearance="fill">
+
+          <mat-label>Descrição Curta</mat-label>
+          <input matInput formControlName="descricaoCurta" name="DescriçãoCurta">
+          <mat-error *ngIf="formulario.controls['descricaoCurta'].hasError('required')">Campo em Branco!</mat-error>
+          <mat-error *ngIf="formulario.controls['descricaoCurta'].hasError('maxlength')">O campo deve ter no máximo 20 caracteres!</mat-error>
+          <mat-error *ngIf="formulario.controls['descricaoCurta'].hasError('minlength')">O campo deve ter no minimo 10 caracteres!</mat-error>
+
+      </mat-form-field>
+      <br><br>
+
+      <mat-form-field appearance="fill">
+
+          <mat-label>Descrição Detalhada</mat-label>
+          <input matInput formControlName="descricaoCompleta" name="DescriçãoCompleta">
+          <mat-error *ngIf="formulario.controls['descricaoCompleta'].hasError('required')">Campo em Branco!</mat-error>
+          <mat-error *ngIf="formulario.controls['descricaoCompleta'].hasError('maxlength')">O campo deve ter no máximo 50 caracteres!</mat-error>
+          <mat-error *ngIf="formulario.controls['descricaoCompleta'].hasError('minlength')">O campo deve ter no minimo 20 caracteres!</mat-error>
+
+      </mat-form-field>
+      <br><br>
+
+      <mat-form-field appearance="fill">
+
+        <mat-label>Valor - Personalizado</mat-label>
+        <input matInput formControlName="valor" name="Valor">
+  
+        <mat-error *ngIf="formulario.controls['valor'].hasError('somenteNumeros')">Erro personalizado
+        </mat-error>
+      </mat-form-field>
+
+      <br><br>
+
+      <mat-form-field appearance="fill">
+
+          <mat-label>Url Imagem</mat-label>
+          <input matInput formControlName="urlImagem" name="UrlImagem">
+          <mat-error *ngIf="formulario.controls['urlImagem'].hasError('required')">Campo em Branco!</mat-error>
+
+      </mat-form-field>
+      <br><br>
+
+      <mat-card-actions class="titulo">
+          <button mat-raised-button color="primary" type="submit" >
+              <mat-icon>send</mat-icon>
+              Cadastrar
+          </button>
+
+          <button mat-raised-button color="warn" type="reset">
+              <mat-icon>clear</mat-icon>
+              Excluir
+          </button>
+          <button mat-raised-button color="primary" routerLink="/produtos"><mat-icon>reply</mat-icon></button>
+      </mat-card-actions>
+
+
+  </mat-card>
+
+</form>
